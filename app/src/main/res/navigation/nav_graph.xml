@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.hasanshukurov.toolbarnumune.ui.fragment.HomeFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/fromHome_To_Replace"
+            app:destination="@id/replaceFragment" />
+        <action
+            android:id="@+id/fromHome_To_Detail"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/replaceFragment"
+        android:name="com.hasanshukurov.toolbarnumune.ui.fragment.ReplaceFragment"
+        android:label="fragment_replace"
+        tools:layout="@layout/fragment_replace" >
+        <argument
+            android:name="noteArgs"
+            app:argType="com.hasanshukurov.toolbarnumune.model.NotesModel" />
+        <action
+            android:id="@+id/fromReplace_To_Home"
+            app:destination="@id/firstFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.hasanshukurov.toolbarnumune.ui.fragment.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <action
+            android:id="@+id/fromDetail_To_Home"
+            app:destination="@id/firstFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="homeToolbarTitleXml" type="String" />
+        <variable name="homeFragmentXml" type="com.hasanshukurov.toolbarnumune.ui.fragment.HomeFragment" />
+        <variable name="homeObject" type="com.hasanshukurov.toolbarnumune.ui.adapter.NoteAdapter" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.HomeFragment"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarHome"
+                app:title="@{homeToolbarTitleXml}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00109B"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/homeRecycler"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:adapter="@{homeObject}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+
+        </LinearLayout>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:onClick="@{() -> homeFragmentXml.fabOnClick()}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:src="@drawable/fab_add_photo"
+            app:layout_anchor="@id/homeRecycler"
+            app:layout_anchorGravity="bottom|right|end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
