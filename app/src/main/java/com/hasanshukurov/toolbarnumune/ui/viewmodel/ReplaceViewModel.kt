@@ -15,7 +15,5 @@ class ReplaceViewModel @Inject constructor(val noteRepo: NoteRepository) : ViewM
         viewModelScope.launch {
             noteRepo.replaceNoteRepo(id,title,note)
         }
-
     }
-
 }

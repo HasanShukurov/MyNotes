@@ -24,7 +24,6 @@ class HomeFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: HomeViewModel
-  //  private lateinit var noteList : ArrayList<NotesModel>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,12 +60,6 @@ class HomeFragment : Fragment(), SearchView.OnQueryTextListener {
             }
 
         },viewLifecycleOwner,Lifecycle.State.RESUMED)
-
-
-
-
-    //    noteList = ArrayList<NotesModel>()
-
 
 
         viewModel.noteList.observe(viewLifecycleOwner){

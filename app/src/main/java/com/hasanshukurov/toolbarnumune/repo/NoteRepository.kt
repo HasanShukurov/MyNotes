@@ -18,20 +18,6 @@ import javax.inject.Inject
 
 class NoteRepository @Inject constructor(val noteDao: NoteDao) {
     private var job : Job? = null
-/*
-    var noteList : MutableLiveData<List<NotesModel>>
-
-    init {
-        noteList = MutableLiveData()
-    }
-
-
-
-    fun getAllMyNotesRP(): MutableLiveData<List<NotesModel>>{
-        return noteList
-    }
-
- */
 
     fun saveNoteRepo(title: String, note: String){
 
@@ -43,7 +29,6 @@ class NoteRepository @Inject constructor(val noteDao: NoteDao) {
 
         }
 
-    //    Navigation.findNavController(it).navigate(DetailsFragmentDirections.fromDetailToHome())
     }
 
     suspend fun replaceNoteRepo(id: Int, title: String, note: String){
@@ -52,23 +37,11 @@ class NoteRepository @Inject constructor(val noteDao: NoteDao) {
 
         getAllNotesRepo()
 
-     //   Navigation.findNavController(it).navigate(ReplaceFragmentDirections.fromReplaceToHome())
     }
 
     suspend fun searchNoteRepo(searchNoteText:String) : List<NotesModel>{
         return noteDao.searchNote(searchNoteText)
     }
-/*
-    fun deleteNoteRepo(noteId: Int){
-        job = CoroutineScope(Dispatchers.Main).launch {
-            val deletedNote = NotesModel("","",noteId)
-            noteDao.deleteNote(deletedNote)
-
-            getAllNotesRepo()
-        }
-    }
-
- */
 
     suspend fun deleteNoteRepo(noteId: Int){
             val deletedNote = NotesModel("","",noteId)
@@ -81,6 +54,4 @@ class NoteRepository @Inject constructor(val noteDao: NoteDao) {
     suspend fun getAllNotesRepo(): List<NotesModel> {
         return noteDao.allNotes()
     }
-
-
 }

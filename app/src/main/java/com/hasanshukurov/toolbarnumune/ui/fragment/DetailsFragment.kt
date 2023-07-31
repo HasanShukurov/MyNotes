@@ -35,12 +35,6 @@ class DetailsFragment : Fragment() {
 
         binding.detailsToolbarTitleXml = "New Note"
 
-
-
-
-
-
-
         return binding.root
     }
 

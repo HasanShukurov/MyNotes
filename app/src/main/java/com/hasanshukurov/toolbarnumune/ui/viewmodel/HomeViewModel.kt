@@ -14,13 +14,6 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(val noteRepo: NoteRepository) : ViewModel() {
     var noteList = MutableLiveData<List<NotesModel>>()
-/*
-    init {
-        getAllNotesVM()
-        noteList = noteRepo.getAllMyNotesRP()
-    }
-
- */
 
     fun searchNoteVM(searchText:String){
         viewModelScope.launch {

@@ -51,15 +51,6 @@ class NoteAdapter(val noteList: List<NotesModel>,
                 return@setNegativeButton
             }
             alert.show()
-
-
-    /*
-            Snackbar.make(it, "Are you shure delete ?", Snackbar.LENGTH_LONG).setAction("Yes"){
-                viewModel.deleteNoteVM(noteList[position].id)
-                Toast.makeText(holder.itemView.context, "${noteList[position].title} -> Silindi",Toast.LENGTH_LONG).show()
-            }.show()
-
-     */
         }
 
     }
